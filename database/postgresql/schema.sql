@@ -65,4 +65,12 @@ CREATE INDEX message_transaction_hash_index ON message (transaction_hash);
 CREATE TABLE pruning
 (
     last_pruned_height BIGINT NOT NULL
-)
+);
+
+CREATE TABLE token_transfer(
+    transaction_hash            TEXT   NOT NULL REFERENCES transaction (hash),
+    contract                    TEXT   NOT NULL,
+    sender                      TEXT   NOT NULL,
+    recipient                   TEXT   NOT NULL,
+    amount                      TEXT   NOT NULL
+);

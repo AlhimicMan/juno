@@ -68,7 +68,7 @@ func (w Worker) Start() {
 	}
 }
 
-// process defines the job consumer workflow. It will fetch a block for a given
+// Process - process defines the job consumer workflow. It will fetch a block for a given
 // height and associated metadata and export it to a database. It returns an
 // error if any export process fails.
 func (w Worker) Process(height int64) error {

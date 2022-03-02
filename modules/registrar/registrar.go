@@ -3,6 +3,7 @@ package registrar
 import (
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/forbole/juno/v2/modules/tokens"
 
 	"github.com/forbole/juno/v2/node"
 
@@ -89,6 +90,7 @@ func (r *DefaultRegistrar) BuildModules(ctx Context) modules.Modules {
 		pruning.NewModule(ctx.JunoConfig, ctx.Database, ctx.Logger),
 		messages.NewModule(r.parser, ctx.EncodingConfig.Marshaler, ctx.Database),
 		telemetry.NewModule(ctx.JunoConfig),
+		tokens.NewModule(ctx.EncodingConfig.Marshaler, ctx.Database),
 	}
 }
 

@@ -42,6 +42,10 @@ type Database interface {
 	// An error is returned if the operation fails.
 	SaveMessage(msg *types.Message) error
 
+	// SaveTokenTransfer stores a wasm token transfer.
+	// An error is returned if the operation fails.
+	SaveTokenTransfer(msg *types.WasmTransferMsg) error
+
 	// Close closes the connection to the database
 	Close()
 }

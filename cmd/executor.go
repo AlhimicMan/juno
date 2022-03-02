@@ -7,7 +7,6 @@ import (
 
 	"github.com/forbole/juno/v2/types/config"
 
-	fixcmd "github.com/forbole/juno/v2/cmd/fix"
 	initcmd "github.com/forbole/juno/v2/cmd/init"
 	migratecmd "github.com/forbole/juno/v2/cmd/migrate"
 	parsecmd "github.com/forbole/juno/v2/cmd/parse"
@@ -43,7 +42,6 @@ func BuildDefaultExecutor(config *Config) cli.Executor {
 		VersionCmd(),
 		initcmd.InitCmd(config.GetInitConfig()),
 		parsecmd.ParseCmd(config.GetParseConfig()),
-		fixcmd.NewFixCmd(config.GetParseConfig()),
 		migratecmd.MigrateCmd(),
 	)
 

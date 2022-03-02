@@ -232,6 +232,15 @@ VALUES ($1, $2, $3, $4, $5)`
 	return err
 }
 
+func (db *Database) SaveTokenTransfer(msg *types.WasmTransferMsg) error {
+	stmt := `
+INSERT INTO token_transfer(transaction_hash, contract, sender, recipient, amount) 
+VALUES ($1, $2, $3, $4, $5)`
+
+	_, err := db.Sql.Exec(stmt, msg.TxHash, msg.Contract, msg.Sender, msg.Recipient, msg.Amount)
+	return err
+}
+
 // Close implements database.Database
 func (db *Database) Close() {
 	err := db.Sql.Close()
